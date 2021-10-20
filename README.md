@@ -5,6 +5,7 @@ NOTE: These dots are intended for my setup. Thus, if you wish to use them, you w
 ## Info
 - OS: Arch
 - WM: Xmonad
+- Display Manager: LightDM
 - Terminal: Alacritty
 - Shell: Zsh, Fish
 - WM: Xmonad
