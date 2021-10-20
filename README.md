@@ -5,11 +5,10 @@ NOTE: These dots are intended for my setup. Thus, if you wish to use them, you w
 ## Info
 - OS: Arch
 - WM: Xmonad
+- Bar: Xmobar
 - Display Manager: LightDM
 - Terminal: Alacritty
 - Shell: Zsh, Fish
-- WM: Xmonad
-- Bar: Xmobar
 - Browser: Firefox Deveper Edition
 - Fonts: Cascadia Code + Nerd Font
 - Compositor: Picom
