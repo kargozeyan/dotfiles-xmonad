@@ -1,0 +1,29 @@
+Config { font = "xft:Cascadia Code:weight=bold:antialias=true:hinting=true:pixelsize=12, Symbols Nerd Font, Font Awesome 5 Free"
+       , additionalFonts = []
+       , borderColor = "#88c0d0"
+       , border = BottomB
+       , bgColor = "#2e3440"
+       , fgColor = "#d8dee9"
+       , alpha = 255
+       , position = Static {xpos = 0, ypos = 0, width = 1920, height = 24}
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [
+                      Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Com "bash" ["/home/karen/.config/xmobar/brightness.sh"] "brightness" 10
+                    , Run Com "bash" ["/home/karen/.config/xmobar/battery.sh"] "battery" 100
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%UnsafeStdinReader%}\
+                    \{%battery% | <fc=#88c0d0> %brightness%</fc> | <fc=#88c0d0> %uname%</fc> | <fc=#88c0d0>%date%</fc> "
+       }
