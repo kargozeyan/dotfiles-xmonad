@@ -1,4 +1,4 @@
-Config { font = "xft:Cascadia Code:weight=bold:antialias=true:hinting=true:pixelsize=12, Symbols Nerd Font, Font Awesome 5 Free"
+Config { font = "xft:Cascadia Code:weight=bold:antialias=true:hinting=true:pixelsize=12, Symbols Nerd Font:pixelsize=12"
        , additionalFonts = []
        , borderColor = "#88c0d0"
        , border = BottomB
@@ -8,22 +8,24 @@ Config { font = "xft:Cascadia Code:weight=bold:antialias=true:hinting=true:pixel
        , position = Static {xpos = 0, ypos = 0, width = 1920, height = 24}
        , textOffset = -1
        , iconOffset = -1
-       , lowerOnStart = True
+       , lowerOnStart = False
        , pickBroadest = False
-       , persistent = False
+       , persistent = True
        , hideOnStart = False
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
        , commands = [
-                      Run Com "uname" ["-s","-r"] "" 36000
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    , Run Com "bash" ["/home/karen/.config/xmobar/brightness.sh"] "brightness" 10
-                    , Run Com "bash" ["/home/karen/.config/xmobar/battery.sh"] "battery" 100
-                    , Run UnsafeStdinReader
+                      Run Com "uname" ["-r"] "" -1
+                    , Run Date "<fc=#d08770><<  %a %b %_d %Y </fc><fc=#a3be8c><<  %H:%M:%S</fc>" "date"  10
+                    , Run Com "bash" ["/home/karen/.config/xmobar/scripts/brightness.sh"]    "brightness"    10
+                    , Run Com "bash" ["/home/karen/.config/xmobar/scripts/battery.sh"]       "battery"       100
+                    , Run Com "bash" ["/home/karen/.config/xmobar/scripts/volume.sh"]        "volume"        10 
+                    , Run Com "bash" ["/home/karen/.config/xmobar/scripts/check-updates.sh"] "check-updates" 1800
+                    , Run Com "bash" ["/home/karen/.config/xmobar/scripts/keyboard.sh"]      "keyboard"      10
+		      , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%UnsafeStdinReader%}\
-                    \{%battery% | <fc=#88c0d0> %brightness%</fc> | <fc=#88c0d0> %uname%</fc> | <fc=#88c0d0>%date%</fc> "
+       , template = " %UnsafeStdinReader%}{<fc=#b48ead> %keyboard% </fc><fc=#bf616a><< %check-updates%</fc> <fc=#a3be8c><< %volume%</fc> <fc=#81a1c1><< %battery%</fc> <fc=#ebcb8b><<  %brightness%</fc> <fc=#b48ead><<  %uname%</fc> %date% "
        }
